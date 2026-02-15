@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/dashboard_cards.dart';
+import 'speaking_session_screen.dart';
 
 class PracticeScreen extends StatelessWidget {
   const PracticeScreen({super.key});
@@ -11,23 +12,32 @@ class PracticeScreen extends StatelessWidget {
       appBar: AppBar(title: const Text('Practice')),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
-        children: const [
-          SectionHeader(
+        children: [
+          const SectionHeader(
             title: 'AI Speaking Coach',
             subtitle: 'Practice daily topics and improve fluency, grammar, and pronunciation.',
           ),
-          SizedBox(height: 14),
+          const SizedBox(height: 14),
           Card(
             child: ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              leading: CircleAvatar(child: Icon(Icons.mic_none_rounded)),
-              title: Text('Daily Speaking Topic'),
-              subtitle: Text('Describe a place you enjoy visiting on weekends.'),
-              trailing: Icon(Icons.chevron_right),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              leading: const CircleAvatar(child: Icon(Icons.mic_none_rounded)),
+              title: const Text('Daily Speaking Topic'),
+              subtitle: const Text('Describe a place you enjoy visiting on weekends.'),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () {
+                Navigator.of(context).push(
+                  const MaterialPageRoute(
+                    builder: (_) => SpeakingSessionScreen(
+                      topic: 'Describe a place you enjoy visiting on weekends.',
+                    ),
+                  ),
+                );
+              },
             ),
           ),
-          SizedBox(height: 10),
-          Card(
+          const SizedBox(height: 10),
+          const Card(
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               leading: CircleAvatar(child: Icon(Icons.graphic_eq_rounded)),
@@ -36,8 +46,8 @@ class PracticeScreen extends StatelessWidget {
               trailing: Icon(Icons.chevron_right),
             ),
           ),
-          SizedBox(height: 10),
-          Card(
+          const SizedBox(height: 10),
+          const Card(
             child: ListTile(
               contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               leading: CircleAvatar(child: Icon(Icons.record_voice_over_outlined)),
