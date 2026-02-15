@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/dashboard_cards.dart';
+
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -8,16 +10,35 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text('Profile')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
         children: const [
-          CircleAvatar(radius: 30, child: Icon(Icons.person_outline)),
-          SizedBox(height: 12),
-          Center(child: Text('Learner Profile')),
-          SizedBox(height: 20),
+          SectionHeader(
+            title: 'Learner Profile',
+            subtitle: 'Track your plan, achievements, and learning preferences.',
+          ),
+          SizedBox(height: 14),
+          Card(
+            child: ListTile(
+              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              leading: CircleAvatar(radius: 22, child: Icon(Icons.person_outline)),
+              title: Text('IELTS Learner'),
+              subtitle: Text('Target Band: 7.0'),
+            ),
+          ),
+          SizedBox(height: 10),
           Card(
             child: ListTile(
               title: Text('Plan'),
-              subtitle: Text('Free (upgrade to Premium for unlimited speaking feedback)'),
+              subtitle: Text('Free plan with limited speaking evaluations'),
+              trailing: Icon(Icons.workspace_premium_outlined),
+            ),
+          ),
+          SizedBox(height: 10),
+          Card(
+            child: ListTile(
+              title: Text('Upgrade to Premium'),
+              subtitle: Text('Unlock unlimited speaking feedback and full mock tests'),
+              trailing: Icon(Icons.chevron_right),
             ),
           ),
         ],
